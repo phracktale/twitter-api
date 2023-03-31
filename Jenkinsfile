@@ -42,5 +42,9 @@ node {
 			} 
 		}
 	}
+	
+	stage("Deploy to K8S") {
+	      build 'Twitter-api-deoloy'
+	}
 
 }
