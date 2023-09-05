@@ -33,6 +33,16 @@ node {
 		}
 	}
 
+	stage('Sonar') {
+		withMaven(maven: 'maven') {
+			if(isUnix()) {
+ 				sh "mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=twitter-api" 
+			} else { 
+ 				bat "mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=twitter-api" 
+			} 
+		}
+	}
+	
 	stage('Build Docker Image') {
 		withMaven(maven: 'maven') {
 			if(isUnix()) {
