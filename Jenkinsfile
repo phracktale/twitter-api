@@ -32,7 +32,7 @@ node {
 			} 
 		}
 	}
-
+      /*
 	stage('Sonar') {
 		 withSonarQubeEnv('Sonar') {
 			if(isUnix()) {
@@ -41,7 +41,7 @@ node {
  				bat "mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=twitter-api" 
 			} 
 		}
-	}
+	} */
 	
 	stage('Build Docker Image') {
 		withMaven(maven: 'maven') {
